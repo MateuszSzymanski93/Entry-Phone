@@ -24,27 +24,29 @@ function displayValue()
     {
         if(newArr === "62#2633")
         {
+            DISPLAY.classList.add("green")
             DISPLAY.innerHTML = "OTWARTE"
             WIN.classList.add("moveit")
             setTimeout(() => {
                 WIN.classList.remove("moveit");
-            }, "9000");
+                DISPLAY.classList.remove("green");
+                displayArr = []
+            }, "6000");
             openMusic();
             //console.log("otwarte")
         }
         else 
         {
+            DISPLAY.classList.add("red")
             DISPLAY.innerHTML = "Err"
             LOOSE.classList.add("moveit")
             setTimeout(() => {
                 LOOSE.classList.remove("moveit");
-            }, "9000");
+                DISPLAY.classList.remove("red");
+                displayArr = []
+            }, "6000");
             failmusic();
         }
-    }
-    if(displayArr.length == 8)
-    {
-        displayArr = []
     }
 }
 

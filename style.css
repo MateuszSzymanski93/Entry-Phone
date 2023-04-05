@@ -1,9 +1,11 @@
 :root
 {
+    --black: rgb(0, 0, 0);
     --blue: rgb(63, 63, 178);
-    --green: rgb(0, 186, 0);
+    --green: rgb(38, 172, 29);
+    --purple: rgb(186, 0, 170);
     --red: rgb(143, 0, 0);
-    --yellow: rgb(199, 213, 0);
+    --yellow: rgb(233, 132, 0);
 }
 
 *
@@ -16,18 +18,19 @@
 body
 {
     align-items: center;
-    background: radial-gradient(var(--green), var(--blue));
+    background: radial-gradient(var(--purple), var(--blue));
     display: flex;
     flex-direction: column;
     height: 100vh;
     justify-content: center;
+    overflow: hidden;
 }
 
 .display
 {
     align-items: center;
     background: aliceblue;
-    color: var(--green);
+    color: var(--purple);
     display: flex;
     font-size: 3.2em;
     font-weight: bold;
@@ -82,6 +85,18 @@ body
     transform: translateY(200%);
 }
 
+.green
+{
+    animation: winColors 6s linear;
+    color: white;
+}
+
+.red
+{
+    animation: looseColors 6s linear;
+    color: white;
+}
+
 .loose
 {
     font-size: 500px;
@@ -91,7 +106,7 @@ body
 
 .moveit
 {
-    animation: moveIt 9s ease-in-out;
+    animation: moveIt 6s ease-in-out;
 }
 
 @media (max-width: 1000px)
@@ -127,14 +142,106 @@ body
 {
     0% 
     {
-        transform: translateY(200%);
+        transform: translateY(120%);
     }
-    50% 
+    33% 
+    {
+        transform: translateY(0%);
+    }
+    66%
     {
         transform: translateY(0%);
     }
     100%
     {
-        transform: translateY(200%);
+        transform: translateY(120%);
+    }
+}
+
+@keyframes winColors
+{
+    10%
+    {
+        background-color: var(--green);
+    }
+    20%
+    {
+        background-color: var(--purple);
+    }
+    30%
+    {
+        background-color: var(--green);
+    }
+    40%
+    {
+        background-color: var(--purple);
+    }
+    50%
+    {
+        background-color: var(--green);
+    }
+    60%
+    {
+        background-color: var(--purple);
+    }
+    70%
+    {
+        background-color: var(--green);
+    }
+    80%
+    {
+        background-color: var(--purple);
+    }
+    90%
+    {
+        background-color: var(--green);
+    }
+    100%
+    {
+        background-color: var(--purple);
+    }
+}
+
+@keyframes looseColors
+{
+    10%
+    {
+        background-color: var(--red);
+    }
+    20%
+    {
+        background-color: var(--black);
+    }
+    30%
+    {
+        background-color: var(--red);
+    }
+    40%
+    {
+        background-color: var(--black);
+    }
+    50%
+    {
+        background-color: var(--red);
+    }
+    60%
+    {
+        background-color: var(--black);
+    }
+    70%
+    {
+        background-color: var(--red);
+    }
+    80%
+    {
+        background-color: var(--black);
+    }
+    90%
+    {
+        background-color: var(--red);
+    }
+    100%
+    {
+        background-color: var(--black);
     }
 }
