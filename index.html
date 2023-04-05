@@ -23,6 +23,17 @@
         <li class="numbers__btn numbers__btn--0">0</li>
         <li class="numbers__btn numbers__btn--c">C</li>
     </ul>
+    <img src="img/gear.png" alt="ustawienia" class="btn-settings">
+    <div class="settings hidden">
+        <button class="settings__close">X</button>
+        <label class="settings__newcode">
+            <p class="newcode__info hidden">Nowy kod to: <span class="info__code"></span></p>
+            <input type="number" max="9999" class="newcode__digits newcode__digits--first" required>
+            <span class="newcode__hash">#</span>
+            <input type="number" max="9999" class="newcode__digits newcode__digits--last" required> 
+        </label>
+        <button class="newcode__sub-newcode">Set new code</button>
+    </div>
     <span class="win">&#128077;</span>
     <span class="loose">&#128553;</span>
     <script src="script.js"></script>

@@ -3,6 +3,7 @@
     --black: rgb(0, 0, 0);
     --blue: rgb(63, 63, 178);
     --green: rgb(38, 172, 29);
+    --glass: rgba(0, 0, 0, 0.25);
     --purple: rgb(186, 0, 170);
     --red: rgb(143, 0, 0);
     --yellow: rgb(233, 132, 0);
@@ -26,6 +27,8 @@ body
     overflow: hidden;
 }
 
+/* --------------- MAIN --------------- */
+
 .display
 {
     align-items: center;
@@ -37,7 +40,7 @@ body
     height: 1.5em;
     justify-content: center;
     margin-bottom: 10px;
-    width: 27vw;
+    width: 25vw;
 }
 
 .numbers
@@ -45,7 +48,7 @@ body
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     list-style: none;
-    width: 28vw;
+    width: 26vw;
 }
 
 .numbers__btn
@@ -60,6 +63,7 @@ body
     font-weight: bold;
     justify-content: center;
     margin: 4px;
+    transition: all 0.5s;
 }
 
 .numbers__btn:hover
@@ -71,11 +75,174 @@ body
 .numbers__btn--hash:hover
 {
     background-color: var(--red);
+    cursor: pointer;
 }
 
 .numbers__btn--c:hover
 {
     background-color: var(--red);
+    cursor: pointer;
+}
+
+@media (max-width: 1000px)
+{
+    .display
+    {
+        font-size: 1.8em;
+        height: 2em;
+        width: 69vw;
+    }
+    .numbers
+    {
+        width: 70vw;
+    }
+}
+@media (max-width: 1000px) and (orientation: landscape)
+{
+    .display
+    {
+        font-size: 1.6em;
+        width: 25vw;
+    }   
+    .numbers
+    {
+        width: 24vw;
+    } 
+    .numbers__btn
+    {
+        font-size: 2.6em;
+    }
+}
+
+/* --------------- SETTINGS --------------- */
+
+.btn-settings
+{
+    cursor: pointer;
+    height: 50px;
+    margin-top: 30px;
+    opacity: 0.6;
+    transition: all 1s;
+}
+
+.btn-settings:hover
+{
+    transform: rotate(180deg);
+    opacity: 1;
+    scale: 1.1;
+}
+
+.settings
+{
+    align-items: center;
+    backdrop-filter: blur(10px);
+    background: var(--glass);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+}
+
+.settings__close
+{
+    background: transparent;
+    border: none;
+    color: aliceblue;
+    cursor: pointer;
+    position: absolute;
+    font-size: 1.8em;
+    font-weight: bold;
+    right: 1em;
+    top: 1em;
+}
+
+.settings__newcode
+{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.newcode__info
+{
+    background-color: aliceblue;
+    border-radius: 10px;
+    color: var(--purple);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.8em;
+    padding: 15px;
+    position: absolute;
+    transform: translateY(-150px);
+}
+
+.info__code
+{
+    color: var(--yellow);
+    font-weight: bold;
+}
+
+.newcode__digits
+{
+    color: var(--purple);
+    font-size: 2.4em;
+    font-weight: bold;
+    margin: 0 40px;
+    text-align: center;
+    width: 3em;
+}
+
+.newcode__hash
+{
+    color: aliceblue;
+    font-size: 2.4em;
+    font-weight: bold;
+}
+
+.newcode__sub-newcode
+{
+    background: linear-gradient(120deg, var(--yellow), var(--purple));
+    border: none;
+    border-radius: 5px;
+    color: aliceblue;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 30px 30vw;
+    padding: 5px;
+}
+
+@media (max-width: 600px)
+{
+    .settings__newcode
+    {
+        justify-content: space-around;
+    }
+    .newcode__digits
+    {
+        margin: 0;
+    }
+}
+
+/* --------------- EFFECTS --------------- */
+.hidden
+{
+    display: none;
+}
+
+.fadein
+{
+    animation: fadeIn 0.8s;
+}
+
+.fadeout
+{
+    animation: fadeOut 0.8s;
 }
 
 .green
@@ -94,48 +261,19 @@ body
 {
     font-size: 300px;
     position: absolute;
-    transform: translateY(200%);
+    transform: translateY(100vh);
 }
 
 .loose
 {
     font-size: 300px;
     position: absolute;
-    transform: translateY(200%);
+    transform: translateY(100vh);
 }
 
 .moveit
 {
     animation: moveIt 6s ease-in-out;
-}
-
-@media (max-width: 1000px)
-{
-    .display
-    {
-        height: 2em;
-        width: 93vw;
-    }
-    .numbers
-    {
-        width: 95vw;
-    }
-}
-@media (max-width: 1000px) and (orientation: landscape)
-{
-    .display
-    {
-        font-size: 1.6em;
-        width: 27vw;
-    }   
-    .numbers
-    {
-        width: 28vw;
-    } 
-    .numbers__btn
-    {
-        font-size: 2.6em;
-    }
 }
 
 @keyframes moveIt
@@ -155,6 +293,38 @@ body
     100%
     {
         transform: translateY(120%);
+    }
+}
+
+@keyframes rotateIt
+{
+    100%
+    {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes fadeIn
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut 
+{
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
     }
 }
 
