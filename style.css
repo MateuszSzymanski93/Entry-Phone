@@ -78,13 +78,6 @@ body
     background-color: var(--red);
 }
 
-.win
-{
-    font-size: 500px;
-    position: absolute;
-    transform: translateY(200%);
-}
-
 .green
 {
     animation: winColors 6s linear;
@@ -97,9 +90,16 @@ body
     color: white;
 }
 
+.win
+{
+    font-size: 300px;
+    position: absolute;
+    transform: translateY(200%);
+}
+
 .loose
 {
-    font-size: 500px;
+    font-size: 300px;
     position: absolute;
     transform: translateY(200%);
 }
