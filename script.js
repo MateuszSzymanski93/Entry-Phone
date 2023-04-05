@@ -5,6 +5,7 @@ const WIN = document.querySelector(".win")
 const LOOSE = document.querySelector(".loose")
 
 let displayArr = []
+let currentCode = "62#2633"
 
 BUTTONC.addEventListener("click", function()
 {
@@ -12,17 +13,49 @@ BUTTONC.addEventListener("click", function()
     displayValue()
 });
 
+BUT.forEach((button) =>
+{
+    button.addEventListener("click", function()
+    {
+        displayArr.splice(displayArr.length, 0, button.innerText)
+        displayValue()
+        clickMusic()
+        if(button.innerText == "C")
+        {
+            displayArr = []
+        }
+    });
+});
+
+function clickMusic()
+{
+    let audio = new Audio("click.mp3");
+    audio.play()
+}
+
+function failmusic()
+{
+    let audio = new Audio("fail.mp3");
+    audio.play()
+}
+
+function openMusic()
+{
+    let audio = new Audio("open.mp3");
+    audio.play()
+}
+
 function displayValue()
 {
     let newArr = displayArr.join("")
     //console.log(newArr)
-    if(displayArr.length <= 6)
+    if(displayArr.length < currentCode.length)
     {
         DISPLAY.innerHTML = newArr
     }
-    if(displayArr.length == 7)
+    if(displayArr.length == currentCode.length)
     {
-        if(newArr === "62#2633")
+        if(newArr === currentCode)
         {
             DISPLAY.classList.add("green")
             DISPLAY.innerHTML = "OTWARTE"
@@ -50,35 +83,18 @@ function displayValue()
     }
 }
 
-function clickMusic()
+const SUB_NEW_CODE = document.getElementById("sub-newcode")
+SUB_NEW_CODE.addEventListener("click", function()
 {
-    let audio = new Audio("click.mp3");
-    audio.play()
-}
-
-function failmusic()
-{
-    let audio = new Audio("fail.mp3");
-    audio.play()
-}
-
-function openMusic()
-{
-    let audio = new Audio("open.mp3");
-    audio.play()
-}
-
-BUT.forEach((button) =>
-{
-    button.addEventListener("click", function()
-    {
-        displayArr.splice(displayArr.length, 0, button.innerText)
-        displayValue()
-        clickMusic()
-        if(button.innerText == "C")
-        {
-            displayArr = []
-        }
-    });
+    let firstDigits = document.getElementById("first-digits").value
+    let lastDigits = document.getElementById("last-digits").value
+    currentCode = firstDigits + "#" + lastDigits
+    let ccLength = currentCode.length
+    console.log(ccLength)
+    console.log(currentCode)
+    return currentCode
 });
+
+
+
 

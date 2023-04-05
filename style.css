@@ -94,14 +94,14 @@ body
 {
     font-size: 300px;
     position: absolute;
-    transform: translateY(200%);
+    transform: translateY(100vh);
 }
 
 .loose
 {
     font-size: 300px;
     position: absolute;
-    transform: translateY(200%);
+    transform: translateY(100vh);
 }
 
 .moveit
